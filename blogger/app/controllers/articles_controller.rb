@@ -8,6 +8,9 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id]);
+    #Initialization of an instance variable for article comment
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
 
   def new
