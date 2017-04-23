@@ -11,7 +11,9 @@
       <% @tags.each do |tag| %>
         <li>
           <h3><%= link_to tag.name, tag_path(tag) %></h3>
-          <%= link_to "Delete", tag_path(tag), method: :delete, data: {confirm: "Really delete the tag?"}%></p>
+          <% if logged_in? %>
+            <%= link_to "Delete", tag_path(tag), method: :delete, data: {confirm: "Really delete the tag?"}%></p>
+          <% end %>
         </li>
       <% end %>
     </ul>
